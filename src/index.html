@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BATIPRO — Vos devis, votre réussite</title>
+    <!-- Tailwind Output -->
+    <link rel="stylesheet" href="./output.css">
+</head>
+<body class="bg-brand-light font-sans antialiased">
+
+<header class="bg-brand-green pt-6 pb-64 px-4 relative overflow-hidden">
+    <!-- Navbar FIXE au scroll -->
+    <div id="navbar-fixed" class="fixed top-0 left-0 w-full z-[100] transition-all duration-300 py-4">
+        <nav class="max-w-6xl mx-auto flex items-center justify-between px-4 relative">
+            
+            <!-- 1. LOGO -->
+            <div class="flex-shrink-0 relative z-50">
+                <a href="/">
+                    <img src="./assets/images/logo.png" alt="Logo BATIPRO" class="h-20 w-auto object-contain">
+                </a>
+            </div>
+
+            <!-- 2. NAV PILULE (Desktop) -->
+            <div class="hidden md:flex bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl px-8 py-3 items-center justify-center">
+                <div class="flex items-center gap-10">
+                    <a href="#" class="items-nav text-sm tracking-wide">Faire un devis</a>
+                    <a href="#" class="items-nav text-sm tracking-wide">Modèles</a>
+                    <a href="#" class="items-nav text-sm tracking-wide">Tarifs</a>
+                </div>
+            </div>
+
+            <!-- 3. ACTIONS (Desktop) -->
+            <div class="hidden md:flex flex-shrink-0">
+                <button class="btn-nav">Faire un devis (gratuit)</button>
+            </div>
+
+            <!-- 4. HAMBURGER (Mobile) -->
+            <button id="menu-toggle" class="md:hidden relative z-50 p-2 text-white cursor-pointer">
+                <svg id="hamburger-icon" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+                </svg>
+                <svg id="close-icon" class="w-8 h-8 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+
+            <!-- 5. MENU MOBILE (Overlay) -->
+            <div id="mobile-menu" class="fixed inset-0 bg-brand-green translate-x-full transition-transform duration-500 md:hidden flex flex-col items-center gap-8 z-40">
+                <a href="#" class="items-nav text-2xl">Faire un devis</a>
+                <a href="#" class="items-nav text-2xl">Modèles</a>
+                <a href="#" class="items-nav text-2xl">Tarifs</a>
+                <button class="btn-nav mt-4">Faire un devis (gratuit)</button>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Contenu Hero Texte (inchangé) -->
+    <div class="max-w-6xl mx-auto mt-32 grid md:grid-cols-2 gap-12 relative z-10">
+        <div class="space-y-8">
+            <h1 class="text-5xl text-white leading-[1.1] font-light">
+                Créer gratuitement et rapidement vos <span class="text-brand-orange underline decoration-dotted decoration-4 underline-offset-8">devis</span> en quelques clics sans inscription.
+            </h1>
+        </div>
+        <div class="space-y-6 md:pt-4">
+            <p class="text-white/70 text-xl leading-relaxed max-w-sm">
+                Éditez des devis en ligne gratuitement et présentez à vos clients toute la qualité de facturation pour les petites entreprises et artisans.
+            </p>
+            <div class="bg-white/10 border border-white/20 rounded-full px-5 py-2 inline-flex items-center gap-3">
+                <div class="flex text-brand-orange text-xs">★★★★★</div>
+                <span class="text-white text-sm font-medium">4.8/5 par nos utilisateurs</span>
+            </div>
+        </div>
+    </div>
+    <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-brand-orange/10 to-transparent"></div>
+</header>
+
+
+<section class="relative bg-brand-light pb-0 px-4">
+
+<!-- ==========================================
+     MOCKUP FLOTTANT — Carousel focus central
+     Images pleine hauteur, ombres peek sur les bords
+     Pas de sidebar, pas de card — juste des images
+=========================================== -->
+<div class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl px-4 z-30">
+  <div class="relative">
+
+    <!-- Container principal — coins arrondis, overflow hidden -->
+    <div class="rounded-md overflow-hidden" style="height: 500px;">
+
+      <!-- Viewport clips les slides -->
+      <div class="relative w-full h-full overflow-hidden bg-brand-navy">
+
+        <!-- ---- SLIDES ---- -->
+
+        <!-- Slide 0 -->
+        <div class="hero-slide absolute inset-0 transition-all duration-700 ease-in-out"
+             data-index="0">
+          <img
+            src="./assets/images/img1.jpg"
+            class="w-full h-full object-cover"
+            alt="Éditeur de couleurs"
+          />
+        </div>
+
+        <!-- Slide 1 -->
+        <div class="hero-slide absolute inset-0 transition-all duration-700 ease-in-out"
+             data-index="1">
+          <img
+            src="./assets/images/img2.jpg"
+            class="w-full h-full object-cover"
+            alt="Gestion TVA"
+          />
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="hero-slide absolute inset-0 transition-all duration-700 ease-in-out"
+             data-index="2">
+          <img
+            src="./assets/images/img3.jpg"
+            class="w-full h-full object-cover"
+            alt="Statistiques"
+          />
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="hero-slide absolute inset-0 transition-all duration-700 ease-in-out"
+             data-index="3">
+          <img
+            src="./assets/images/img4.png"
+            class="w-full h-full object-cover"
+            alt="Devis professionnel"
+          />
+        </div>
+
+
+
+        <!-- Overlay bas pour la caption -->
+        <div class="absolute bottom-0 left-0 right-0 h-28 z-10 pointer-events-none"
+             style="background: linear-gradient(to top, rgba(13,27,42,0.75) 0%, transparent 100%);"></div>
+
+
+
+
+
+      </div><!-- /viewport -->
+    </div><!-- /container -->
+
+
+
+  </div>
+</div>
+
+  
+
+
+</section>
+
+<!-- ============================================
+     SECTION TÉMOIGNAGE — Photo en background
+     Style éditorial, navy + orange uniquement
+============================================= -->
+<section class="relative min-h-[580px] overflow-hidden pt-50">
+
+    <!-- Photo de fond (la personne qui témoigne) -->
+    <div class="absolute inset-0 z-0">
+        <img
+            src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=1400&q=80"
+            alt="Artisan souriant"
+            class="w-full h-full object-cover object-center"
+        />
+        <!-- Overlay navy : opaque à gauche, transparent à droite -->
+        <div
+            class="absolute inset-0"
+            style="background: linear-gradient(105deg, rgba(13,27,42,0.97) 0%, rgba(13,27,42,0.88) 40%, rgba(13,27,42,0.30) 75%, rgba(13,27,42,0.10) 100%);"
+        ></div>
+    </div>
+
+
+    <div class="relative z-10 max-w-6xl mx-auto px-4 flex items-center min-h-[580px]">
+        <div class="max-w-lg">
+
+        
+
+            <!-- Texte du témoignage -->
+            <blockquote class="text-white text-2xl md:text-3xl font-light leading-snug mb-8">
+                Une solution agréable à utiliser, qui simplifie vraiment la vie des entrepreneurs et des artisans sur le terrain.
+            </blockquote>
+            <div class="flex flex-row items-center font-light py-5 text-white">
+                Sylvie Lambert - Aide Soignante
+            </div>
+
+
+
+
+            <!-- Flèches de navigation -->
+            <div class="flex items-center gap-3">
+                <!-- Précédent -->
+                <button
+                    id="testimonial-prev"
+                    class="w-11 h-11 rounded-full flex items-center justify-center transition-all cursor-pointer"
+                    style="border: 1.5px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.55);"
+                    onmouseenter="this.style.borderColor='#F97316'; this.style.color='#F97316';"
+                    onmouseleave="this.style.borderColor='rgba(255,255,255,0.2)'; this.style.color='rgba(255,255,255,0.55)';"
+                >
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                    </svg>
+                </button>
+
+                <!-- Suivant -->
+                <button
+                    id="testimonial-next"
+                    class="w-11 h-11 rounded-full flex items-center justify-center transition-all cursor-pointer"
+                    style="background-color: #F97316; border: 1.5px solid #F97316; color: white;"
+                    onmouseenter="this.style.backgroundColor='#0D1B2A';"
+                    onmouseleave="this.style.backgroundColor='#F97316';"
+                >
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </button>
+
+               
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Barre orange bas droite -->
+    <div
+        class="absolute bottom-0 right-0 w-40 h-1 z-10 opacity-30"
+        style="background-color: #F97316;"
+    ></div>
+
+</section>
+<!-- ============================================================
+     SECTION FEATURES — 6 cards, 2 lignes de 3
+     Fond brand-light, bordure orange au hover
+     ============================================================ -->
+<section class="py-24 px-4" style="background-color: #F2F4F7;">
+
+  <!-- Heading -->
+  <div class="max-w-6xl mx-auto text-center mb-16">
+    <p class="text-brand-orange text-xs font-semibold tracking-widest uppercase mb-4">
+      Pourquoi BATIPRO
+    </p>
+    <h2 class="text-4xl md:text-5xl font-display text-brand-navy mb-5 leading-tight">
+      Conçu pour la réalité du terrain
+    </h2>
+    <p class="text-gray-400 max-w-xl mx-auto text-base leading-relaxed">
+      Tout ce dont un entrepreneur a besoin pour gagner des marchés, du premier contact à la signature.
+    </p>
+  </div>
+
+  <!-- Grid 3 colonnes × 2 lignes -->
+  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-5">
+
+    <!-- Card 1 — Calculs FCFA -->
+    <div class="feature-card group relative bg-white rounded-2xl p-8 border-2 border-transparent transition-all duration-300 hover:border-brand-orange hover:shadow-[0_8px_32px_rgba(249,115,22,0.12)] cursor-default">
+      <!-- Top accent bar (visible on hover) -->
+      <div class="absolute top-0 left-8 right-8 h-0.5 bg-brand-orange rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+
+      <!-- Icon -->
+      <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-colors duration-300"
+           style="background-color: rgba(253,181,21,0.1);">
+        <div class="group-hover:scale-110 transition-transform duration-300">
+          <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none">
+            <text x="2" y="18" font-size="16" font-weight="700" fill="#FDB515">₣</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Number badge -->
+      <div class="inline-flex items-center gap-1.5 bg-brand-gold/10 px-3 py-1 rounded-full mb-4">
+        <span class="text-xs font-bold text-yellow-700">Calcul auto</span>
+      </div>
+
+      <h3 class="text-lg font-display font-bold text-brand-navy mb-3 group-hover:text-brand-orange transition-colors duration-200">
+        Totaux en FCFA
+      </h3>
+      <p class="text-brand-green text-sm leading-relaxed">
+        TVA locale, remises en % ou montant fixe, acompte et solde restant — tout calculé en temps réel sans erreur de virgule.
+      </p>
+
+     
+    </div>
+
+    <!-- Card 2 — Export PDF -->
+    <div class="feature-card group relative bg-white rounded-2xl p-8 border-2 border-transparent transition-all duration-300 hover:border-brand-orange hover:shadow-[0_8px_32px_rgba(249,115,22,0.12)] cursor-default">
+      <div class="absolute top-0 left-8 right-8 h-0.5 bg-brand-orange rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+
+      <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-colors duration-300"
+           style="background-color: rgba(249,115,22,0.08);">
+        <div class="group-hover:scale-110 transition-transform duration-300">
+          <svg class="w-7 h-7 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+              d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+              d="M13 3v6h6M9 17h6M9 13h3"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="inline-flex items-center gap-1.5 bg-brand-orange/8 px-3 py-1 rounded-full mb-4"
+           style="background-color: rgba(249,115,22,0.08);">
+        <span class="text-xs font-bold" style="color: #c2540a;">PDF · Excel</span>
+      </div>
+
+      <h3 class="text-lg font-display font-bold text-brand-navy mb-3 group-hover:text-brand-orange transition-colors duration-200">
+        Export professionnel
+      </h3>
+      <p class="text-brand-green text-sm leading-relaxed">
+        Générez un PDF brandé avec votre logo en un clic. Choisissez entre 3 modèles : standard, compact ou détaillé.
+      </p>
+
+      
+    </div>
+
+    <!-- Card 3 — WhatsApp -->
+    <div class="feature-card group relative bg-white rounded-2xl p-8 border-2 border-transparent transition-all duration-300 hover:border-brand-orange hover:shadow-[0_8px_32px_rgba(249,115,22,0.12)] cursor-default">
+      <div class="absolute top-0 left-8 right-8 h-0.5 bg-brand-orange rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+
+      <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-colors duration-300"
+           style="background-color: rgba(29,176,122,0.1);">
+        <div class="group-hover:scale-110 transition-transform duration-300">
+          <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="#1DB07A"/>
+            <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.875-1.418A9.959 9.959 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.946 7.946 0 01-4.274-1.244l-.306-.182-3.179.924.95-3.088-.2-.317A7.96 7.96 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z" fill="#1DB07A" opacity="0.6"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full mb-4"
+           style="background-color: rgba(29,176,122,0.1);">
+        <span class="text-xs font-bold" style="color: #0f6e56;">WhatsApp · Email</span>
+      </div>
+
+      <h3 class="text-lg font-display font-bold text-brand-navy mb-3 group-hover:text-brand-orange transition-colors duration-200">
+        Envoi en 1 clic
+      </h3>
+      <p class="text-brand-green text-sm leading-relaxed">
+        Partagez le PDF directement via WhatsApp avec un message pré-rempli. Le client reçoit un document professionnel en secondes.
+      </p>
+    </div>
+
+    <!-- Card 4 — Catalogue -->
+    <div class="feature-card group relative bg-white rounded-2xl p-8 border-2 border-transparent transition-all duration-300 hover:border-brand-orange hover:shadow-[0_8px_32px_rgba(249,115,22,0.12)] cursor-default">
+      <div class="absolute top-0 left-8 right-8 h-0.5 bg-brand-orange rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+
+      <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6"
+           style="background-color: rgba(13,27,42,0.07);">
+        <div class="group-hover:scale-110 transition-transform duration-300">
+          <svg class="w-7 h-7 text-brand-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+              d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full mb-4"
+           style="background-color: rgba(13,27,42,0.06);">
+        <span class="text-xs font-bold text-brand-navy">Catalogue perso</span>
+      </div>
+
+      <h3 class="text-lg font-display font-bold text-brand-navy mb-3 group-hover:text-brand-orange transition-colors duration-200">
+        Vos prestations sauvegardées
+      </h3>
+      <p class="text-brand-green text-sm leading-relaxed">
+        Créez votre catalogue de services et matériaux. Ajoutez une prestation en un tap au lieu de la retaper à chaque devis.
+      </p>
+    </div>
+
+    <!-- Card 5 — Suivi statuts -->
+    <div class="feature-card group relative bg-white rounded-2xl p-8 border-2 border-transparent transition-all duration-300 hover:border-brand-orange hover:shadow-[0_8px_32px_rgba(249,115,22,0.12)] cursor-default">
+      <div class="absolute top-0 left-8 right-8 h-0.5 bg-brand-orange rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+
+      <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6"
+           style="background-color: rgba(249,115,22,0.08);">
+        <div class="group-hover:scale-110 transition-transform duration-300">
+          <svg class="w-7 h-7 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+              d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full mb-4"
+           style="background-color: rgba(249,115,22,0.08);">
+        <span class="text-xs font-bold" style="color: #c2540a;">Dashboard</span>
+      </div>
+
+      <h3 class="text-lg font-display font-bold text-brand-navy mb-3 group-hover:text-brand-orange transition-colors duration-200">
+        Suivi de vos devis
+      </h3>
+      <p class="text-brand-green text-sm leading-relaxed">
+        Brouillon → Envoyé → Accepté → Payé. Filtrez vos devis en attente, visualisez vos montants et ne laissez rien traîner.
+      </p>
+
+    </div>
+
+    <!-- Card 6 — Templates métier -->
+    <div class="feature-card group relative bg-white rounded-2xl p-8 border-2 border-transparent transition-all duration-300 hover:border-brand-orange hover:shadow-[0_8px_32px_rgba(249,115,22,0.12)] cursor-default">
+      <div class="absolute top-0 left-8 right-8 h-0.5 bg-brand-orange rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+
+      <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6"
+           style="background-color: rgba(253,181,21,0.1);">
+        <div class="group-hover:scale-110 transition-transform duration-300">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+               style="color: #FDB515;">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+              d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full mb-4"
+           style="background-color: rgba(253,181,21,0.1);">
+        <span class="text-xs font-bold text-yellow-700">Templates métier</span>
+      </div>
+
+      <h3 class="text-lg font-display font-bold text-brand-navy mb-3 group-hover:text-brand-orange transition-colors duration-200">
+        Adapté à votre métier
+      </h3>
+      <p class="text-brand-green text-sm leading-relaxed">
+        Plombier, électricien, BTP, biomédical, solaire — chaque profession a ses modèles pré-remplis pour démarrer vite.
+      </p>
+
+
+    </div>
+
+  </div>
+</section>
+
+<section class="bg-brand-green py-28 px-4 overflow-hidden">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-start">
+
+    <!-- ==========================================
+         GAUCHE : Timeline verticale
+         ========================================== -->
+    <div class="md:sticky md:top-24">
+      <!-- Label -->
+      <p class="text-brand-orange text-sm font-semibold tracking-widest mb-4">
+        Comment ça marche
+      </p>
+      <h2 class="text-4xl md:text-5xl text-white leading-tight mb-16">
+        Votre devis prêt <br>
+        <span class="text-brand-orange">en 3 étapes.</span>
+      </h2>
+
+      <!-- Timeline -->
+      <div class="relative">
+
+        <!-- Static connector line (background) -->
+        <div class="absolute left-6 top-0 bottom-0 w-px bg-white/10"></div>
+        <!-- Animated orange progress line -->
+        <div id="timeline-progress" class="absolute left-6 top-0 w-px bg-brand-orange transition-all duration-700 ease-in-out" style="height: 0%"></div>
+
+        <!-- ---- Step 1 ---- -->
+        <div
+          class="step-item relative flex gap-8 pb-14 cursor-pointer group"
+          data-step="0"
+          onclick="activateStep(0)"
+        >
+          <!-- Dot -->
+          <div
+            id="dot-0"
+            class="step-dot relative z-10 flex-none w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all duration-300"
+            style="border-color: #F97316; background-color: #F97316;"
+          >
+            <span id="num-0" class="font-bold text-lg" style="color: #0b231f;">1</span>
+          </div>
+          <!-- Text -->
+          <div class="pt-2">
+            <h4 id="title-0" class="text-xl font-bold mb-2 transition-colors duration-200" style="color: #F97316;">
+              Choisissez votre métier
+            </h4>
+            <p class="text-white/50 text-sm leading-relaxed max-w-xs">
+              Sélectionnez votre profession parmi nos modèles — plombier, électricien, BTP, biomédical. Le formulaire s'adapte automatiquement.
+            </p>
+          </div>
+        </div>
+
+        <!-- ---- Step 2 ---- -->
+        <div
+          class="step-item relative flex gap-8 pb-14 cursor-pointer group"
+          data-step="1"
+          onclick="activateStep(1)"
+        >
+          <!-- Dot -->
+          <div
+            id="dot-1"
+            class="step-dot relative z-10 flex-none w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all duration-300"
+            style="border-color: rgba(255,255,255,0.15); background-color: #0b231f;"
+          >
+            <span id="num-1" class="font-bold text-lg" style="color: rgba(255,255,255,0.25);">2</span>
+          </div>
+          <!-- Text -->
+          <div class="pt-2">
+            <h4 id="title-1" class="text-xl font-bold mb-2 text-white transition-colors duration-200">
+              Remplissez vos prestations
+            </h4>
+            <p class="text-white/50 text-sm leading-relaxed max-w-xs">
+              Ajoutez vos articles depuis votre catalogue. La TVA, les remises et le total en FCFA se calculent en temps réel.
+            </p>
+          </div>
+        </div>
+
+        <!-- ---- Step 3 ---- -->
+        <div
+          class="step-item relative flex gap-8 cursor-pointer group"
+          data-step="2"
+          onclick="activateStep(2)"
+        >
+          <!-- Dot -->
+          <div
+            id="dot-2"
+            class="step-dot relative z-10 flex-none w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all duration-300"
+            style="border-color: rgba(255,255,255,0.15); background-color: #0b231f;"
+          >
+            <span id="num-2" class="font-bold text-lg" style="color: rgba(255,255,255,0.25);">3</span>
+          </div>
+          <!-- Text -->
+          <div class="pt-2">
+            <h4 id="title-2" class="text-xl font-bold mb-2 text-white transition-colors duration-200">
+              Exportez &amp; Envoyez
+            </h4>
+            <p class="text-white/50 text-sm leading-relaxed max-w-xs">
+              Générez le PDF professionnel en un clic. Partagez-le directement via WhatsApp ou Email depuis l'application.
+            </p>
+          </div>
+        </div>
+
+      </div><!-- /Timeline -->
+    </div>
+
+    <!-- ==========================================
+         DROITE : Photo + badge flottant
+         ========================================== -->
+    <div class="flex flex-col items-center gap-4 mt-0">
+
+      <!-- Photo container -->
+      <div class="relative w-full rounded-2xl overflow-hidden" style="height: 600px;">
+
+        <div
+          id="photo-0"
+          class="step-photo absolute inset-0 transition-all duration-700"
+          style="opacity: 1; transform: scale(1);"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=80"
+            alt="Plombier professionnel au travail"
+            class="w-full h-full object-cover"
+          />
+          <!-- Dark overlay gradient -->
+          <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(13,27,42,0.75) 0%, transparent 55%);"></div>
+          <!-- Caption badge bottom left -->
+          <div class="absolute bottom-6 left-6 right-6 flex items-end justify-between">
+            <div>
+              <div class="text-xs text-white/60 mb-1 tracking-widest uppercase">Étape 1</div>
+              <div class="text-white text-xl font-bold">Plombier · Électricien · BTP</div>
+              <div class="text-white/60 text-sm mt-1">Choisissez votre métier en un clic</div>
+            </div>
+          
+          
+          </div>
+        </div>
+
+        <!-- Photo 2 : Devis / document professionnel -->
+        <div
+          id="photo-1"
+          class="step-photo absolute inset-0 transition-all duration-700"
+          style="opacity: 0; transform: scale(1.03);"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80"
+            alt="Remplissage d'un devis professionnel"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(13,27,42,0.75) 0%, transparent 55%);"></div>
+          <div class="absolute bottom-6 left-6 right-6 flex items-end justify-between">
+            <div>
+              <div class="text-xs text-white/60 mb-1 tracking-widest uppercase">Étape 2</div>
+              <div class="text-white text-xl font-bold">Calcul automatique en FCFA</div>
+              <div class="text-white/60 text-sm mt-1">TVA, remises, totaux — zéro erreur</div>
+            </div>
+           
+          </div>
+        </div>
+
+        <!-- Photo 3 : PDF / partage WhatsApp -->
+        <div
+          id="photo-2"
+          class="step-photo absolute inset-0 transition-all duration-700"
+          style="opacity: 0; transform: scale(1.03);"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80"
+            alt="Partage du devis par WhatsApp"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(13,27,42,0.75) 0%, transparent 55%);"></div>
+          <div class="absolute bottom-6 left-6 right-6 flex items-end justify-between">
+            <div>
+              <div class="text-xs text-white/60 mb-1 tracking-widest uppercase">Étape 3</div>
+              <div class="text-white text-xl font-bold">PDF pro · WhatsApp · Email</div>
+              <div class="text-white/60 text-sm mt-1">Envoyé au client en moins de 10 secondes</div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /photo container -->
+
+     
+    </div><!-- /right col -->
+
+  </div>
+</section>
+
+<section class="max-w-6xl mx-auto px-4 py-24">
+    <div class="bg-orange-200 rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden">
+        <h2 class="text-4xl md:text-5xl text-brand-green mb-8 relative z-10">Le temps c’est de l’argent alors sauvez les  <span class="text-brand-orange underline decoration-dotted decoration-4 underline-offset-8">deux</span></h2>
+       
+        
+        <div class="flex flex-col md:flex-row justify-center gap-4 relative z-10 pt-7">
+            <button class="btn-secondary py-4 px-10 text-lg">Créer mon premier devis</button>
+           
+        </div>
+
+        <!-- Icônes flottantes en arrière-plan -->
+        <div class="absolute -bottom-10 -left-10 opacity-10 rotate-12">
+            <svg class="w-40 h-40" fill="currentColor" viewBox="0 0 24 24"><path d="M19 13H5v-2h14v2z"/></svg>
+        </div>
+         <div class="absolute -top-10 -left-10 opacity-10 rotate-12">
+            <svg class="w-40 h-40" fill="currentColor" viewBox="0 0 24 24"><path d="M19 13H5v-2h14v2z"/></svg>
+    </div>
+</section>
+<section class="py-24 bg-brand-light">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row gap-16">
+        
+        <!-- Titre de la section -->
+        <div class="md:w-1/3">
+            <h2 class="text-4xl md:text-5xl text-brand-navy font-light leading-tight">
+                Les questions <br> fréquentes
+            </h2>
+        </div>
+
+        <!-- Liste des FAQ -->
+        <div class="md:w-2/3 space-y-2">
+            
+            <!-- Question 1 -->
+            <div class="faq-item border-b border-gray-200">
+                <button class="faq-question w-full flex justify-between items-center py-6 text-left group cursor-pointer">
+                    <span class="text-lg font-medium text-brand-navy group-hover:text-brand-orange transition-colors">Comment créer un devis professionnel rapidement sans m'inscrire ?</span>
+                    <span class="faq-icon text-brand-navy transition-transform duration-300">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </span>
+                </button>
+                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                    <p class="pb-6 text-gray-600 leading-relaxed">Il vous suffit de choisir un modèle, remplir les champs et télécharger. Pas de compte requis.</p>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="faq-item border-b border-gray-200">
+                <button class="faq-question w-full flex justify-between items-center py-6 text-left group cursor-pointer">
+                    <span class="text-lg font-medium text-brand-navy group-hover:text-brand-orange transition-colors">Est-ce que je peux personnaliser mes devis avec mon logo et mes couleurs ?</span>
+                    <span class="faq-icon text-brand-navy transition-transform duration-300">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </span>
+                </button>
+                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                    <p class="pb-6 text-gray-600 leading-relaxed">Oui, l'éditeur BATIPRO permet d'intégrer votre logo et d'ajuster les couleurs thématiques.</p>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="faq-item border-b border-gray-200">
+                <button class="faq-question w-full flex justify-between items-center py-6 text-left group cursor-pointer">
+                    <span class="text-lg font-medium text-brand-navy group-hover:text-brand-orange transition-colors">Quel format de document est utilisé pour les devis ?</span>
+                    <span class="faq-icon text-brand-navy transition-transform duration-300">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </span>
+                </button>
+                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                    <p class="pb-6 text-gray-600 leading-relaxed">Tous les devis sont générés au format PDF standard, compatible avec tous les appareils.</p>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="faq-item border-b border-gray-200">
+                <button class="faq-question w-full flex justify-between items-center py-6 text-left group cursor-pointer">
+                    <span class="text-lg font-medium text-brand-navy group-hover:text-brand-orange transition-colors">Est-ce que l'outil est vraiment gratuit ou y a-t-il des frais cachés ?</span>
+                    <span class="faq-icon text-brand-navy transition-transform duration-300">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </span>
+                </button>
+                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                    <p class="pb-6 text-gray-600 leading-relaxed">L'édition de base est gratuite. Des fonctionnalités avancées peuvent être proposées plus tard sans engagement.</p>
+                </div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="faq-item border-b border-gray-200">
+                <button class="faq-question w-full flex justify-between items-center py-6 text-left group cursor-pointer">
+                    <span class="text-lg font-medium text-brand-navy group-hover:text-brand-orange transition-colors">Combien de temps faut-il pour créer un devis sur BATIPRO ?</span>
+                    <span class="faq-icon text-brand-navy transition-transform duration-300">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </span>
+                </button>
+                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                    <p class="pb-6 text-gray-600 leading-relaxed">En moyenne, moins de 2 minutes suffisent pour un devis complet et professionnel.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<footer class="bg-brand-green pt-20 pb-10 px-4 border-t border-white/5">
+    <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+            
+            <!-- Colonne 1 : Branding & Description -->
+            <div class="md:col-span-1 space-y-6">
+                <a href="/">
+                    <img src="./assets/images/logo.png" alt="Logo BATIPRO" class="h-10 w-auto">
+                </a>
+                <p class="text-white/60 text-sm leading-relaxed">
+                    La solution gratuite et rapide pour créer vos devis professionnels en quelques clics. Conçu pour les artisans et petites entreprises.
+                </p>
+                <div class="flex gap-4">
+                    <!-- Réseaux Sociaux -->
+                    <a href="#" class="text-white/40 hover:text-brand-orange transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                    </a>
+                    <!-- Ajoute d'autres icônes ici -->
+                </div>
+            </div>
+
+            <!-- Colonne 2 : Navigation -->
+            <div class="space-y-6">
+                <h4 class="text-white font-bold uppercase tracking-wider text-sm">Navigation</h4>
+                <ul class="space-y-4">
+                    <li><a href="#" class="text-white/60 hover:text-white transition-colors text-sm">Faire un devis</a></li>
+                    <li><a href="#" class="text-white/60 hover:text-white transition-colors text-sm">Modèles</a></li>
+                    <li><a href="#" class="text-white/60 hover:text-white transition-colors text-sm">Tarifs</a></li>
+                </ul>
+            </div>
+
+            <!-- Colonne 3 : Légal -->
+            <div class="space-y-6">
+                <h4 class="text-white font-bold uppercase tracking-wider text-sm">Légal</h4>
+                <ul class="space-y-4">
+                    <li><a href="#" class="text-white/60 hover:text-white transition-colors text-sm">Mentions Légales</a></li>
+                    <li><a href="#" class="text-white/60 hover:text-white transition-colors text-sm">Politique de Confidentialité</a></li>
+                    <li><a href="#" class="text-white/60 hover:text-white transition-colors text-sm">Conditions d'Utilisation</a></li>
+                </ul>
+            </div>
+
+            <!-- Colonne 4 : Newsletter / Contact -->
+            <div class="space-y-6">
+                <h4 class="text-white font-bold uppercase tracking-wider text-sm">Restez informé</h4>
+                <p class="text-white/60 text-sm">Recevez nos conseils pour optimiser votre facturation.</p>
+                <form class="flex gap-2">
+                    <input type="email" placeholder="Votre email" class="bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white text-sm focus:outline-none focus:border-brand-orange w-full">
+                    <button type="submit" class="bg-brand-orange text-white p-2 rounded-lg hover:bg-brand-green border border-brand-navy hover:border-brand-orange transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="border-t border-white/5 pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
+            <p class="text-white/40 text-xs uppercase tracking-widest">
+                © 2026 BATIPRO. Tous droits réservés.
+            </p>
+          
+        </div>
+    </div>
+</footer>
+
+
+    <!-- Inclusion du JS -->
+    <script src="./assets/js/carousel.js"></script>
+    <script src="./assets/js/steps.js"></script>
+     <script src="./assets/js/main.js"></script>
+
+</body>
+</html>
