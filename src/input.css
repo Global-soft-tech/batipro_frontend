@@ -23,12 +23,33 @@
   font-weight: 700;
 }
 
+
+
+/* Inter - On définit les graisses principales */
+@font-face {
+  font-family: 'Inter';
+  src: url('./assets/fonts/Inter_24pt-Regular.ttf') format('truetype');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('./assets/fonts/Inter_24pt-Bold.ttf') format('truetype');
+  font-weight: 700;
+}
+
+/* Space Grotesk - Pour les titres */
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('./assets/fonts/SpaceGrotesk-Bold.ttf') format('truetype');
+  font-weight: 700;
+}
+
 /* -----------------------------------------------------------
    THEME CUSTOMIZATION (Tailwind v4)
 ----------------------------------------------------------- */
 @theme {
   /* Polices */
-  --font-sans: "Inter", ui-sans-serif, system-ui;
+   --font-sans: "Inter", ui-sans-serif, system-ui;
   --font-display: "Space Grotesk", sans-serif;
 
   /* Palette BATIPRO */
@@ -38,6 +59,91 @@
   --color-brand-green: #0b231f;
   --color-brand-light: #F2F4F7;
 }
+
+/* -----------------------------------------------------------
+   BASE & COMPONENTS
+----------------------------------------------------------- */
+@layer base {
+  body {
+    @apply bg-brand-light text-brand-navy font-sans;
+  }
+  h1, h2, h3 {
+    @apply font-display font-bold;
+  }
+  h1 {
+    /* On force un peu le serrage des lettres pour le look moderne */
+    letter-spacing: -0.02em;
+  }
+  .bg-brand-gold {
+    background-color: var(--color-brand-gold);
+}
+}
+
+@layer components {
+  /* Bouton Primaire (Orange) */
+  .btn-primary {
+    @apply inline-flex items-center px-6 py-3 bg-brand-orange text-white font-bold rounded-lg 
+           transition-transform hover:scale-105 active:scale-95 cursor-pointer;
+  }
+
+  /* Bouton Secondaire (Navy) */
+  .btn-secondary {
+    @apply inline-flex items-center px-6 py-4 bg-brand-green text-white font-light rounded-2xl 
+           transition-all cursor-pointer hover:bg-brand-green/90 active:bg-brand-green/80;
+  }
+
+  .btn-nav {
+    @apply bg-brand-orange rounded-full py-3 px-4 text-sm font-light text-brand-green hover:text-white hover:bg-brand-green transition-colors border-2 border-brand-green hover:border-brand-orange;
+  }
+
+  .items-nav {
+    /* On garde tes styles de base */
+    @apply text-brand-orange font-bold text-lg relative cursor-pointer hover:text-brand-orange transition-colors;
+  }
+
+  /* Création du soulignement invisible par défaut */
+  .items-nav::after {
+    content: '';
+    @apply absolute left-0 bottom-0 w-0 h-[2px] bg-brand-orange transition-all duration-300 ease-in-out;
+  }
+
+  /* Animation au survol : la largeur passe à 100% */
+  .items-nav:hover::after {
+    @apply w-full;
+  }
+
+  /* Carte de Devis */
+  .card-quote {
+    @apply bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition-shadow;
+  }
+  .active-step {
+    @apply bg-white/10 border-brand-orange/50 shadow-[0_0_20px_rgba(249,115,22,0.1)];
+}
+
+.active-step .step-number {
+    @apply bg-brand-orange text-brand-navy border-brand-orange;
+}
+
+.active-step h4 {
+    @apply text-brand-orange;
+}
+.nav-scrolled {
+    @apply bg-brand-green/80 backdrop-blur-lg py-2 shadow-lg border-b border-white/5;
+  }
+
+  /* Correction items-nav pour qu'ils soient blancs par défaut dans la pilule */
+  .items-nav {
+    @apply text-white/80 font-medium transition-colors hover:text-brand-orange;
+  }
+
+  /* Surcharge spécifique pour le menu mobile si besoin */
+  #mobile-menu .items-nav {
+    @apply text-white text-2xl;
+  }
+
+}
+
+
 
 /* -----------------------------------------------------------
    BASE & COMPONENTS
